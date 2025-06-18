@@ -112,7 +112,7 @@ def create_initial_state(user_query: str) -> AgentState:
     )
 
 class MongoDBRetriever:
-    def __init__(self, mongodb_uri: str, db_name: str = "hcl", collection_name: str = "hcl-web"):
+    def __init__(self, mongodb_uri: str, db_name: str = "yubi", collection_name: str = "yubi-web"):
         self.client = MongoClient(mongodb_uri, server_api=ServerApi('1'))
         self.db = self.client[db_name]
         self.collection = self.db[collection_name]
@@ -123,7 +123,7 @@ class MongoDBRetriever:
             pipeline = [
                 {
                     "$vectorSearch": {
-                        "index": "hcl_vector_index",
+                        "index": "yubi_vector_index",
                         "path": "embedding",
                         "queryVector": query_embedding,
                         "numCandidates": limit * 10,
