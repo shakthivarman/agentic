@@ -13,9 +13,9 @@ class Config:
     
     # MongoDB Configuration
     MONGODB_URI = os.getenv("MONGODB_URI")
-    MONGODB_DB_NAME = os.getenv("MONGODB_DB_NAME", "yubi")
-    MONGODB_COLLECTION_NAME = os.getenv("MONGODB_COLLECTION_NAME", "yubi-web")
-    VECTOR_INDEX_NAME = os.getenv("VECTOR_INDEX_NAME", "yubi_vector_index")
+    MONGODB_DB_NAME = os.getenv("MONGODB_DB_NAME", "astellas")
+    MONGODB_COLLECTION_NAME = os.getenv("MONGODB_COLLECTION_NAME", "astellas-web")
+    VECTOR_INDEX_NAME = os.getenv("VECTOR_INDEX_NAME", "astellas_vector_index")
     
     # API Configuration
     GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -65,8 +65,8 @@ class Config:
         
         # Optional configurations with defaults
         optional_configs = [
-            ("MONGODB_DB_NAME", cls.MONGODB_DB_NAME, "yubi"),
-            ("MONGODB_COLLECTION_NAME", cls.MONGODB_COLLECTION_NAME, "yubi-web"),
+            ("MONGODB_DB_NAME", cls.MONGODB_DB_NAME, "astellas"),
+            ("MONGODB_COLLECTION_NAME", cls.MONGODB_COLLECTION_NAME, "astellas-web"),
             ("EMBEDDING_MODEL", cls.EMBEDDING_MODEL, "multi-qa-mpnet-base-cos-v1")
         ]
         
