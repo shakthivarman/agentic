@@ -761,15 +761,12 @@ def initialize_session_state():
         st.session_state.show_thinking = True
 
 def main():
-    st.markdown(f"""
-        <div style="display: flex; align-items: center;">
-            <img src="icon.png" style="width: 50px; height: 50px; margin-right: 10px;">
-            <h1>Agentic RAG Assistant</h1>
-        </div>
-    """, unsafe_allow_html=True)
-    
-    st.title("🤖 Agentic RAG Assistant")
-    st.markdown("*Intelligent document search with multi-agent reasoning and web search capabilities*")
+    col1, col2 = st.columns([2, 7])
+    with col1:
+        st.image("logo.png", width=200) 
+    with col2:
+        st.markdown("<span style='font-size:3rem;font-weight:bold;'>Agentic RAG Assistant</span>", unsafe_allow_html=True)
+        st.markdown("*Intelligent document search with multi-agent reasoning, HuggingFace LLM, and web search capabilities*")
     
     initialize_session_state()
     
