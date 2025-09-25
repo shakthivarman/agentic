@@ -761,13 +761,12 @@ def initialize_session_state():
         st.session_state.show_thinking = True
 
 def main():
-    with open("icon.png", "r") as f:
-    png_icon = f.read()
     st.markdown(f"""
         <div style="display: flex; align-items: center;">
-            {png_icon}
+            <img src="icon.png" style="width: 50px; height: 50px; margin-right: 10px;">
             <h1>Agentic RAG Assistant</h1>
-        </div>""", unsafe_allow_html=True)
+        </div>
+    """, unsafe_allow_html=True)
     
     st.title("🤖 Agentic RAG Assistant")
     st.markdown("*Intelligent document search with multi-agent reasoning and web search capabilities*")
