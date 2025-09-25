@@ -31,8 +31,8 @@ try:
     client = MongoClient(MONGODB_URI, server_api=ServerApi('1'))
     # Test connection
     client.admin.command('ping')
-    db = client['hcl']
-    collection = db['hcl-web']
+    db = client['astellas']
+    collection = db['astellas-web']
     logger.info("Successfully connected to MongoDB")
 except Exception as e:
     logger.error(f"Error connecting to MongoDB: {str(e)}")
@@ -109,7 +109,7 @@ def verify_vector_index(collection, VECTOR_DIMENSION=768):
         # Check if index already exists
         existing_indexes = collection.list_search_indexes()
         for index in existing_indexes:
-            if index["name"] == "hcl_vector_index":
+            if index["name"] == "astellas_vector_index":
                 logger.info("Vector search index exists")
                 return True
 
@@ -124,7 +124,7 @@ def verify_vector_index(collection, VECTOR_DIMENSION=768):
                     "similarity": "cosine"
                  }]
             },
-            name="hcl_vector_index",
+            name="astellas_vector_index",
             type="vectorSearch"
         )
 
@@ -172,7 +172,7 @@ def process_markdown(md_path: str) -> List[Dict]:
     
     return chunks
 
-def ingest_documents(pdf_dir: str = "downloaded_pdfs", md_dir: str = "scraped_content"):
+def ingest_documents(pdf_dir: str = "downloaded_pdfs", md_dir: str = "scraped_content_clean"):
     """Main function to ingest documents"""
     try:
         # Verify vector search index exists or create it
