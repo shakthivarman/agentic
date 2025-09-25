@@ -28,8 +28,8 @@ logger = logging.getLogger(__name__)
 
 # Page configuration
 st.set_page_config(
-    page_title="Agentic RAG Assistant",
-    page_icon="🤖",
+    page_title="Astellas Agentic RAG Assistant",
+    page_icon="icon.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
